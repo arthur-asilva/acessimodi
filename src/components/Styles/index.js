@@ -10,6 +10,13 @@ const main = StyleSheet.create({
         margin: 0,
         backgroundColor: primaryColor
     },
+    containerHeader: {
+        fontSize: 20,
+        textAlign: "justify",
+        margin: 12,
+        color: '#fff',
+        fontWeight: "bold"
+    },
     contentContainer: {
         backgroundColor: '#fff',
         flex: 1,
