@@ -24,7 +24,7 @@ export default function AddPicture({ route }){
     }, [])
 
     useEffect(() => {
-        console.log(image)
+        console.log('Base 64: ', image)
     }, [image])
 
     function toggleCameraType() {
@@ -36,8 +36,8 @@ export default function AddPicture({ route }){
     const takePicture = async() => {
         if(camera){
             setLoadingImage(true)
-            const data = await camera.takePictureAsync()
-            setImage(data.uri)
+            let data = await camera.takePictureAsync({base64:true, quality:0, skipProcessing: true, compress: 1})
+            setImage(data.base64)
         }
     }
 
@@ -69,7 +69,7 @@ export default function AddPicture({ route }){
             }
             { image &&
                 <View style={{flex: 1, justifyContent: 'center'}}>
-                    <Image style={localStyle.image} source={{uri: image}} />
+                    <Image style={localStyle.image} source={{uri: `data:image/jpeg;base64,${image}`}} />
                     <View style={localStyle.confirmImage}>
                         <View style={localStyle.buttonContainer}>
                             <TouchableOpacity
