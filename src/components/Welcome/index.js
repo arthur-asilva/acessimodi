@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, LogBox, TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable"
 import main from "../Styles"
 import { useNavigation } from "@react-navigation/native"
+
+LogBox.ignoreLogs(['new NativeEventEmitter'])
 
 export default function Welcome() {
 

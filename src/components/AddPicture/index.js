@@ -23,10 +23,6 @@ export default function AddPicture({ route }){
         })()
     }, [])
 
-    useEffect(() => {
-        console.log('Base 64: ', image)
-    }, [image])
-
     function toggleCameraType() {
         setType((current) => (
             current === CameraType.back ? CameraType.front : CameraType.back
